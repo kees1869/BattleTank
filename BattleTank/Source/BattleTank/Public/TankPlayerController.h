@@ -33,5 +33,5 @@ float CrosshairXLocation = .5f;
 UPROPERTY(EditAnywhere)
 float CrosshairYLocation = .33333f;
 
-FVector2D ScreenLocation;
+bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 };
