@@ -33,5 +33,10 @@ float CrosshairXLocation = .5f;
 UPROPERTY(EditAnywhere)
 float CrosshairYLocation = .33333f;
 
+UPROPERTY(EditAnywhere)
+float LineTraceRange = 1000000.f; // 10 KM, word units are in centimeters
+
 bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+
+bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 };
