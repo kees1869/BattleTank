@@ -32,4 +32,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+private:
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 120000.f; // TODO find a sensible starting value for a tank projectile
 };
