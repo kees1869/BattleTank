@@ -9,5 +9,4 @@ void UTankBarrel::MoveTo(float Pitch)
 
 	// move the barrel the right amount this frame
 	// given a max elevation speed and the frame time
-	UE_LOG(LogTemp, Warning, TEXT("Barrel moving towards pitch: %f"), Pitch);
 }
