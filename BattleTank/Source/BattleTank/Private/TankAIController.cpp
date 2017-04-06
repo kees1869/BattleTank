@@ -9,19 +9,19 @@ void ATankAIController::BeginPlay() {
 	auto AIControlledTank = GetAIControlledTank();
 
 	if (AIControlledTank) {
-		UE_LOG(LogTemp, Warning, TEXT("AI Controller possessing Tank: %s\n"), *AIControlledTank->GetName());
+//		UE_LOG(LogTemp, Warning, TEXT("AI Controller possessing Tank: %s\n"), *AIControlledTank->GetName());
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("Tank not possessed by AI Controller!\n"));
+//		UE_LOG(LogTemp, Warning, TEXT("Tank not possessed by AI Controller!\n"));
 	}
 
 	auto PlayerPawn = GetPlayerTank();
 
 	if (PlayerPawn) {
-		UE_LOG(LogTemp, Warning, TEXT("Found Player Controller: %s\n"), *PlayerPawn->GetName());
+//		UE_LOG(LogTemp, Warning, TEXT("Found Player Controller: %s\n"), *PlayerPawn->GetName());
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("First Player Controller not found!\n"));
+//		UE_LOG(LogTemp, Warning, TEXT("First Player Controller not found!\n"));
 	}
 }
 
