@@ -3,7 +3,7 @@
 #pragma once
 
 #include "GameFramework/PlayerController.h"
-#include "TankPlayerController.generated.h" // must be last include
+#include "TankPlayerController.generated.h" // must be the last include
 
 class ATank;
 
@@ -15,29 +15,29 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
-	
 private:
-ATank* GetControlledTank() const;
+	ATank* GetControlledTank() const;
+	
+	virtual void BeginPlay() override;
 
-void BeginPlay() override;
+	virtual void Tick( float DeltaTime ) override;
 
-// Called every frame
-virtual void Tick(float DeltaTime) override;
+	// start the tank moving the barrel, so that a shot would hit where
+	// the crosshair intersects the world
+	void AimTowardsCrosshair();
 
-// start the tank moving the barrel, so that a shot would hit where the crosshair intersects the world
-void AimTowardsCrosshair();
+	// return an OUT parameter, true if it hits the landscape
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 
-bool GetSightRayHitLocation(FVector& HitLocation) const;
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5;
 
-UPROPERTY(EditAnywhere)
-float CrosshairXLocation = .5f;
-UPROPERTY(EditAnywhere)
-float CrosshairYLocation = .33333f;
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.3333;
 
-UPROPERTY(EditAnywhere)
-float LineTraceRange = 1000000.f; // 10 KM, word units are in centimeters
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
 
-bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
-
-bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 };
