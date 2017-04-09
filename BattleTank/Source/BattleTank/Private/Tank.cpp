@@ -13,7 +13,7 @@ ATank::ATank()
  	// set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	// no need to protect pointers as added at construction time
+	// no need to protect pointers as this is added at construction time
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
 }
 
@@ -49,15 +49,14 @@ void ATank::AimAt(FVector HitLocation)
 
 void ATank::Fire()
 {
-	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Tank firing"), Time);
-
 	if (!Barrel) { return; }
 	
 	// spawn a projectile at the socket location on the barrel
-	GetWorld()->SpawnActor<AProjectile>(
+		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
 		Barrel->GetSocketRotation(FName("Projectile"))
 	);
+
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
