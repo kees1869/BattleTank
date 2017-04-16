@@ -25,7 +25,7 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 //	auto TankName = GetOwner()->GetName(); // GetOwner() as we are on a COMPONENT here!
 //	auto MoveVelocityString = MoveVelocity.GetSafeNormal().ToString();
-//	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %S"), *TankName, *MoveVelocityString);
+//	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %a"), *TankName, *MoveVelocityString);
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
@@ -33,8 +33,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
-
-	// TODO: prevent double-Speed, due to dual control use
 }
 
 void UTankMovementComponent::IntendTurnRight(float Throw)
@@ -42,6 +40,4 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
-
-	// TODO: prevent double-Speed, due to dual control use
 }
