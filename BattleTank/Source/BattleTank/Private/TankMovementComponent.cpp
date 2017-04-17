@@ -25,7 +25,7 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 //	auto TankName = GetOwner()->GetName(); // GetOwner() as we are on a COMPONENT here!
 //	auto MoveVelocityString = MoveVelocity.GetSafeNormal().ToString();
-//	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %a"), *TankName, *MoveVelocityString);
+//	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"), *TankName, *MoveVelocityString);
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
