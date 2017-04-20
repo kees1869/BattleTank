@@ -29,6 +29,8 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr; // makes it read only AND VISIBLE IN BLUEPRINT
 
 private:
+	virtual void BeginPlay() override;
+
 	// Sets default values for this pawn's properties
 	ATank();
 
