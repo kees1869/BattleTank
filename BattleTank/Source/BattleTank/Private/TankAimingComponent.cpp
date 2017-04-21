@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2016 Rogue Gnome.
 
 #include "BattleTank.h"
 #include "TankBarrel.h"
@@ -39,7 +39,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		false,
 		0,
 		0,
-		ESuggestProjVelocityTraceOption::DoNotTrace // paramater must be present to prevent bug
+		ESuggestProjVelocityTraceOption::DoNotTrace // parameter must be present to prevent bug
 	);
 
 	if (bHaveAimSolution)
