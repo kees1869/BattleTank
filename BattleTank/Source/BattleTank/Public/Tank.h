@@ -7,6 +7,7 @@
 
 // forward declarations
 class UTankBarrel;
+class UTankMovementComponent;
 class UTankAimingComponent;
 class AProjectile;
 
@@ -23,6 +24,10 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly)
+	UTankBarrel* TankBarrel = nullptr;
+	UPROPERTY(BlueprintReadOnly)
+	UTankMovementComponent* TankMovementComponent = nullptr;
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr; // makes it read only AND VISIBLE IN BLUEPRINT
 
 private:
@@ -34,6 +39,7 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
+	// TODO remove once firing is moved to aiming component
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000;
 
