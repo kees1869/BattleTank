@@ -8,7 +8,6 @@
 // forward declarations
 class UTankBarrel;
 class UTankAimingComponent;
-class UTankMovementComponent;
 class AProjectile;
 
 UCLASS()
@@ -24,9 +23,7 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr; // makes it read only AND VISIBLE IN BLUEPRINT
+	UTankAimingComponent* TankAimingComponent = nullptr; // makes it read only AND VISIBLE IN BLUEPRINT
 
 private:
 	virtual void BeginPlay() override;
