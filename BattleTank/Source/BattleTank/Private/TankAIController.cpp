@@ -1,9 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2016 Rogue Gnome.
 
 #include "BattleTank.h"
 #include "TankAimingComponent.h"
 #include "TankAIController.h"
 // Depends on movement component via pathfinding system
+
 
 void ATankAIController::BeginPlay()
 {

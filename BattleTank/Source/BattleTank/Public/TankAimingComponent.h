@@ -5,6 +5,7 @@
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 
+
 // enumerations for aiming state
 UENUM()
 enum class EFiringState : uint8
@@ -14,7 +15,7 @@ enum class EFiringState : uint8
 	Locked
 };
 
-// Forward Declaration
+// Forward Declarations
 class UTankBarrel;
 class UTankTurret;
 class AProjectile;
@@ -48,13 +49,13 @@ private:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
+	void MoveBarrelTowards(FVector AimDirection);
+
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000;
-
-	void MoveBarrelTowards(FVector AimDirection);
 
 	double LastFireTime = 0;
 };

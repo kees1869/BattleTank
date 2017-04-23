@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2016 Rogue Gnome.
 
 #pragma once
 
@@ -6,6 +6,7 @@
 #include "TankMovementComponent.generated.h"
 
 class UTankTrack;
+
 
 /**
  * Responsible for driving the tank tracks.

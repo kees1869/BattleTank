@@ -1,9 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2016 Rogue Gnome.
 
 #pragma once
 
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
+
 
 UCLASS()
 class BATTLETANK_API AProjectile : public AActor

@@ -3,8 +3,8 @@
 #include "BattleTank.h"
 #include "TankBarrel.h"
 #include "TankTurret.h"
-#include "TankAimingComponent.h"
 #include "Projectile.h"
+#include "TankAimingComponent.h"
 
 
 void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
@@ -66,7 +66,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
 void UTankAimingComponent::Fire()
 {
-	if (!ensure(Barrel)) { return; }
+	if (!ensure(Barrel && ProjectileBlueprint)) { return; }
 	bool IsReloaded = FPlatformTime::Seconds() - LastFireTime > ReloadTimeInSeconds;
 	if (IsReloaded) {
 
@@ -77,7 +77,7 @@ void UTankAimingComponent::Fire()
 			Barrel->GetSocketRotation(FName("Projectile"))
 			);
 
-//		Projectile->LaunchProjectile(LaunchSpeed);
+		Projectile->LaunchProjectile(LaunchSpeed);
 		LastFireTime = FPlatformTime::Seconds();
 	}
 }
