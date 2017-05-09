@@ -16,6 +16,10 @@ public:
 // in other words: the projectile causes damage to this object and this member function is called to process that damage
 virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
+// returns current health as a percentage of starting health, between 0 and 1
+UFUNCTION(BlueprintPure, Category = "Health")
+float GetHealthPercent() const;
+
 private:
 	// Sets default values for this pawn's properties
 	ATank();
