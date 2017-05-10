@@ -15,6 +15,10 @@ UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+		
+public:
+UFUNCTION()
+void OnPossessedTankDeath();
 
 protected: // so that subclasses can access it
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
@@ -43,4 +47,6 @@ private:
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	virtual void SetPawn(APawn* InPawn) override;
 };

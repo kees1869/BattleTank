@@ -24,7 +24,7 @@ void ATankAIController::Tick(float DeltaTime)
 	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 	auto ControlledTank = GetPawn();
 
-	if (!ensure(PlayerTank && ControlledTank)) { return; }
+	if (!ensure(PlayerTank && ControlledTank)) { return; } // fails when entering spectator mode
 
 	// move towards the player
 	MoveToActor(PlayerTank, AcceptanceRadius); // TODO check radius is in CM
@@ -54,5 +54,10 @@ void ATankAIController::SetPawn(APawn* InPawn)
 
 void ATankAIController::OnPossessedTankDeath()
 {
-	UE_LOG(LogTemp, Error, TEXT("TANK DESTROYED!!!"))
+//	UE_LOG(LogTemp, Error, TEXT("TANK DESTROYED!!!"))
+
+	if (!ensure(GetPawn())) { return; } // TODO remove ensure if ok
+	{
+		GetPawn()->DetachFromControllerPendingDestroy();
+	}
 }
